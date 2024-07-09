@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    compileSdk 34
+    buildToolsVersion = '34.0.0'
+    defaultConfig {
+        applicationId "com.example.skybox"
+        minSdkVersion 14
+        targetSdkVersion 34
+        versionName '1.0'
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+        versionCode 1
+    }
+    buildTypes {
+        debug {
+            jniDebuggable true
+            renderscriptDebuggable true
+            applicationIdSuffix ".test"
+        }
+        release {
+            jniDebuggable false
+            renderscriptDebuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles 'proguard-rules.pro'
+        }
+    }
+    configurations {
+        configureEach {
+            exclude module: 'commons-logging'
+            exclude module: 'httpclient'
+        }
+    }
+    configurations.implementation {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
+    }
+    productFlavors {
+    }
+
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/DEPENDENCIES']
+            excludes += ['META-INF/INDEX.LIST']
+        }
+    }
+
+    lint {
+        abortOnError true
+        checkReleaseBuilds false
+    }
+    namespace 'com.example.skybox'
+}
+
+allprojects {
+    repositories {
+        maven {
+            url "https://maven.google.com"
+        }
+    }
+}
+
+dependencies {
+    
+}
