@@ -120,9 +120,9 @@ public class SkyboxRenderer implements Renderer{
 		skyboxProgram = new SkyboxShaderProgram(context);
 		skybox = new Skybox();
 		skyboxTexture = TextureHelper.loadCubeMap(context, 
-				new int[]{R.drawable.bg, R.drawable.bg1,//about
-						R.drawable.bg, R.drawable.bg1,//Down Up
-						R.drawable.bg, R.drawable.bg1});//Before and After
+				new int[]{R.drawable.nx, R.drawable.px,//about
+						R.drawable.ny, R.drawable.py,//Down Up
+						R.drawable.nz, R.drawable.pz});//Before and After
 		
 		particleProgram = new ParticleShaderProgram(context);
 		particleSystem = new ParticleSystem(10000);
