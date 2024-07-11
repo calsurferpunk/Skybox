@@ -109,7 +109,7 @@ public class SkyboxRenderer implements Renderer{
 		// TODO Auto-generated method stub
 		glViewport(0, 0, width, height);
 		
-		perspectiveM(projectionMatrix, 0, 45, (float)width/(float)height, 1f, 10f);
+		perspectiveM(projectionMatrix, 0, (height > width ? 90f : 45f), (float)width/(float)height, 1f, 10f);
 	}
 
 	@Override
